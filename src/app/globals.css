@@ -1,0 +1,99 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --background: #08080c;
+    --surface: #0f0f17;
+    --surface-elevated: #161622;
+    --surface-card: #12121b;
+    --border: #232336;
+    --border-subtle: #1c1c2b;
+    --foreground: #f3f4f6;
+    --foreground-muted: #9ca3af;
+    --accent-purple: #8b5cf6;
+    --accent-fuchsia: #d946ef;
+    --accent-pink: #ec4899;
+    --accent-token: #f59e0b;
+    --status-live: #ef4444;
+    --status-online: #10b981;
+  }
+
+  * {
+    border-color: var(--border-subtle);
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0b0b12;
+}
+::-webkit-scrollbar-thumb {
+  background: #27273a;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3b3b54;
+}
+
+/* Glassmorphism and glow utilities */
+.glass-panel {
+  background: rgba(18, 18, 27, 0.75);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-nav {
+  background: rgba(8, 8, 12, 0.85);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.card-hover {
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.card-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px -10px rgba(139, 92, 246, 0.15);
+  border-color: rgba(168, 85, 247, 0.3);
+}
+
+.glow-purple {
+  box-shadow: 0 0 25px -5px rgba(139, 92, 246, 0.4);
+}
+
+.glow-fuchsia {
+  box-shadow: 0 0 25px -5px rgba(217, 70, 239, 0.4);
+}
+
+.glow-token {
+  box-shadow: 0 0 20px -5px rgba(245, 158, 11, 0.35);
+}
+
+/* Pulse animation for live badge */
+@keyframes pulse-live {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.15);
+  }
+}
+
+.animate-pulse-live {
+  animation: pulse-live 1.6s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
